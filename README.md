@@ -32,6 +32,7 @@ $ npm run start:prod
 $ npm run test
 
 # e2e tests
+# in order to run e2e tests you need to have the developement instance running and run tests in another terminal
 $ npm run test:e2e
 
 # test coverage

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { transformAndValidate } from "class-transformer-validator";
-import { FindOneUserDto } from './dto';
+import { CreateUserDto, FindOneUserDto } from './dto';
 import { User } from '@db/models/user.model';
 import { UserResponseObject } from './responseObjects/user.responseObject';
 
@@ -11,6 +11,10 @@ export class UsersService {
         return transformAndValidate(UserResponseObject, user);
     }
 
+    create(dto: CreateUserDto){
+        return User.create({...dto});
+    }
+    
     findOne(dto: FindOneUserDto){
         return User.findOne({
             where: {...dto}
